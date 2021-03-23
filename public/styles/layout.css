@@ -14,12 +14,31 @@ html {
  * Global layout stuff
  */
 
+ /*
+ * font-family: 'Source Sans Pro', sans-serif;
+ */
+
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
+  font-family: 'Source Sans Pro', sans-serif;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
+
+
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ .container {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+   width: 90%;
+   background-color: #f4f1ec;
+ }
