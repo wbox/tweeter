@@ -1,0 +1,29 @@
+button {
+  font-family: 'Bungee', cursive;
+  color: white;
+  background-color: #4056A1;
+  border: 0px; 
+}
+
+label {
+  font-weight:normal;
+}
+
+.submit-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+output {
+  font-family: 'Bungee', cursive;
+  border: 0px;
+}
+
+#tweet-text {
+  border: none;
+  border-bottom: 3px solid black;
+  background-color: #f4f1ec;
+  width: 100%;
+  margin-bottom: 15px;
+}

@@ -42,3 +42,8 @@ body {
    width: 90%;
    background-color: #f4f1ec;
  }
+
+ .new-tweet {
+   display: flex;
+   flex-direction: column;
+ }
