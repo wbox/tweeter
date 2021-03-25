@@ -41,12 +41,19 @@ const renderTweets = function(tweets) {
   }
 }
 
+// Function to prevent XSS
+const escape = function(str) {
+  return $(str).text()
+}
+
 const createTweetElement = function(tweet) {
 
   const { name, avatars, handle } = tweet.user;
   const { text } = tweet.content;
-  const createdAt  = new Date() - new Date(tweet.created_at);
+  const createdAt  = Math.floor((new Date().getTime() - tweet.created_at)/1000/60/60/24);
 
+//    <div class="content-text">${text}</div>
+// ${escape(text)}
   let $tweet = `
   <article>
     <section class="tweet-header">
@@ -56,16 +63,15 @@ const createTweetElement = function(tweet) {
       </div>
       <div class="handle">${handle}</div>
     </section>
-    <div class="content-text">${text}</div>
+    <div class="content-text">${escape(text)}</div>
     <section class="tweet-footer">
-      <div class="created_at">${createdAt}</div>
+      <div class="created_at">${createdAt} days ago</div>
       <div class="icons"><span><img class="footer-img" src="images/flag.png"></span><span><img class="footer-img" src="images/retweet.png"></span><span><img class="footer-img" src="images/heart.png"></span></div>
     </section>
   </article>
   `
   return $tweet;
 }
-
 
 const sendTweetToServer = (tweetText) => {
   $.ajax({
@@ -81,8 +87,7 @@ const sendTweetToServer = (tweetText) => {
 
   const validateTweetText = (tweetText) => {
     const tweetTextLength = $('textarea').val().length;
-
-    console.log("lenght", $('textarea').val().length);
+    // console.log("lenght", $('textarea').val().length);
   }
 
   const loadtweets = () => {
@@ -95,26 +100,33 @@ const sendTweetToServer = (tweetText) => {
       renderTweets(res);
     });
   }
-
+  
 $( document ).ready(function() {
+
+  //$('#user-message').slideUp();
+
   $('#tweet-form').submit(function(event) {
 
     event.preventDefault()
-    const tweetText = $('form').serialize()
-
-    console.log($(this).length)
+    const tweetText = $('form').serialize();
     const tweetTextLength = $(this).find('textarea').val().length;
-    console.log("--->", tweetTextLength);
+
+    console.log("--->",tweetText);
+
+    $('#user-messages').slideUp();
 
     if (tweetTextLength === 0 || tweetTextLength === undefined) {
-      alert("You need to type your text before tweeting!"); 
+      $('#user-messages').html("&#9888; Blank tweets are not allowed. &#9888;")
+      $( '#user-messages' ).slideDown()
     } else if (tweetTextLength > 140) {
-      alert("Your tweet can have up to 140 characters!");
+      $('#user-messages').html("&#9888; Too Long. Please respect the limit of 140 characters &#9888;")
+      $('#user-messages').slideDown();
     } else {
       sendTweetToServer(tweetText)
-      //loadtweets();
+      loadtweets();
     }
   });
+  $('#user-message').slideUp();
   loadtweets();
 });
 

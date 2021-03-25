@@ -59,3 +59,10 @@ section.tweet-header {
   margin: 2px;
 }
 
+#user-messages {
+  border: 3px solid red;
+  margin: 5px;
+  width: 100%;
+  color: red;
+}
+
