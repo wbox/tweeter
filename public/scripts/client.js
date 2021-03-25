@@ -111,8 +111,6 @@ const loadtweets = () => {
 }
   
 $( document ).ready(function() {
-
-  // $('#user-message').hide();
   
   $('#tweet-form').submit(function(event) {
 
@@ -138,7 +136,3 @@ $( document ).ready(function() {
   $('#user-message').slideUp();
   loadtweets();
 });
-
-
-
-
