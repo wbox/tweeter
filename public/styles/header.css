@@ -1,3 +1,8 @@
+.top-nav {
+  position: fixed;
+  z-index: 100;
+}
+
 header {
   display: flex;
   justify-content: center;
@@ -5,12 +10,18 @@ header {
   align-items: center;
   height: 400px;
   width: 100%;
-  padding: 0px;
+  padding: 10px;
+  margin-top: 110px;
   background-color:sandybrown;
+  position: relative;
 }
+
 
 .avatar {
   background-color: transparent;
+  /* position: relative; */
+  /* height: 80%;
+  padding: 15px; */
   /* background-image: url("https://www.transparenttextures.com/patterns/ps-neutral.png"); */
 }
 
@@ -18,5 +29,9 @@ h2 {
   padding: 0px;
 }
 
-
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
