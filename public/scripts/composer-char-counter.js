@@ -12,6 +12,3 @@ $(document).ready( function() {
     $('.counter').text(tweetVal);
   })
 })
-
-
-;

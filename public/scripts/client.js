@@ -41,19 +41,24 @@ const renderTweets = function(tweets) {
   }
 }
 
-// Function to prevent XSS
-const escape = function(str) {
-  return $(str).text()
+// Function to calculate the differece of current day to whne the tweet was created
+const calculateDate = function(timestamp) {
+  const days = Math.floor((new Date().getTime() - timestamp)/1000/60/60/24);
+  if (days === 0) {
+    return "Today";
+  } else if ( days === 1) {
+    return "1 day ago";
+  } else {
+    return `${days} days ago`
+  }
 }
 
+// Function to create the tweet article element
 const createTweetElement = function(tweet) {
-
   const { name, avatars, handle } = tweet.user;
   const { text } = tweet.content;
-  const createdAt  = Math.floor((new Date().getTime() - tweet.created_at)/1000/60/60/24);
+  const createdAt  = calculateDate(tweet.created_at) 
 
-//    <div class="content-text">${text}</div>
-// ${escape(text)}
   let $tweet = `
   <article>
     <section class="tweet-header">
@@ -63,9 +68,9 @@ const createTweetElement = function(tweet) {
       </div>
       <div class="handle">${handle}</div>
     </section>
-    <div class="content-text">${escape(text)}</div>
+    <div class="content-text">${text}</div>
     <section class="tweet-footer">
-      <div class="created_at">${createdAt} days ago</div>
+      <div class="created_at">${createdAt}</div>
       <div class="icons"><span><img class="footer-img" src="images/flag.png"></span><span><img class="footer-img" src="images/retweet.png"></span><span><img class="footer-img" src="images/heart.png"></span></div>
     </section>
   </article>
@@ -73,6 +78,7 @@ const createTweetElement = function(tweet) {
   return $tweet;
 }
 
+// Function to send the tweet to the server
 const sendTweetToServer = (tweetText) => {
   $.ajax({
     url: "/tweets",
@@ -85,21 +91,21 @@ const sendTweetToServer = (tweetText) => {
     .catch(err => console.log(err))
   }
 
-  const validateTweetText = (tweetText) => {
-    const tweetTextLength = $('textarea').val().length;
-    // console.log("lenght", $('textarea').val().length);
-  }
+// Function to prevent XSS
+const escape = (tweetText) => {
+  return $('textarea').text();
+}
 
-  const loadtweets = () => {
-    $.ajax({
-      url: "/tweets",
-      method: "GET"
-    })
-    .then(res => {
-      $('.tweet-container').empty()
-      renderTweets(res);
-    });
-  }
+const loadtweets = () => {
+  $.ajax({
+    url: "/tweets",
+    method: "GET"
+  })
+  .then(res => {
+    $('.tweet-container').empty()
+    renderTweets(res);
+  });
+}
   
 $( document ).ready(function() {
 
