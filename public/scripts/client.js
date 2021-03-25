@@ -68,7 +68,7 @@ const createTweetElement = function(tweet) {
       </div>
       <div class="handle">${handle}</div>
     </section>
-    <div class="content-text">${text}</div>
+    <div class="content-text">${escape(text)}</div>
     <section class="tweet-footer">
       <div class="created_at">${createdAt}</div>
       <div class="icons"><span><img class="footer-img" src="images/flag.png"></span><span><img class="footer-img" src="images/retweet.png"></span><span><img class="footer-img" src="images/heart.png"></span></div>
@@ -87,14 +87,17 @@ const sendTweetToServer = (tweetText) => {
   })
     .then(res => {
       loadtweets();
+      $('textarea').val('');
     })
     .catch(err => console.log(err))
   }
 
-// Function to prevent XSS
-const escape = (tweetText) => {
-  return $('textarea').text();
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
 }
+
 
 const loadtweets = () => {
   $.ajax({
@@ -109,15 +112,15 @@ const loadtweets = () => {
   
 $( document ).ready(function() {
 
-  //$('#user-message').slideUp();
-
+  // $('#user-message').hide();
+  
   $('#tweet-form').submit(function(event) {
 
     event.preventDefault()
     const tweetText = $('form').serialize();
     const tweetTextLength = $(this).find('textarea').val().length;
 
-    console.log("--->",tweetText);
+    console.log("--->",escape(tweetText));
 
     $('#user-messages').slideUp();
 
