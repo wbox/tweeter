@@ -45,69 +45,38 @@
       <div><span class="nav-span-tittle">tweeter</span></div>
       <div><span class="nav-span-menu">Write a new tweet</span></div>
     </nav>
-
-    <header>
-      <div class="avatar">
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div>
-          <h2>Amy Mansell</h2>
-      </div>
-    </header>
   
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <!-- <h2>Compose Tweet</h2> -->
-        <form id="tweet-form" method="POST" action="/tweets/">
-          <div id="user-messages"></div>
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <div class="submit-btn">
-            <button type="submit" id="tweet-button">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section> 
-      <!-- Tweet Container -->
-      <section class="tweet-container">
-
-<!-- 
-        <article>
-          <section class="tweet-header">
-            <div class="profile">
-              <div class="avatar"><img src="https://i.imgur.com/73hZDYK.png"></div>
-              <div class="name">Newton</div>
+    <div class="reactive-content">
+      <header>
+        <div class="avatar">
+            <img src="/images/profile-hex.png"> 
+        </div>
+        <br>
+        <div>
+            <h2>Amy Mansell</h2>
+        </div>
+      </header>
+      
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="new-tweet">
+          <!-- <h2>Compose Tweet</h2> -->
+          <form id="tweet-form" method="POST" action="/tweets/">
+            <div id="user-messages"></div>
+            <label for="tweet-text">What are you humming about?</label>
+            <textarea name="text" id="tweet-text"></textarea>
+            <div class="submit-btn">
+              <button type="submit" id="tweet-button">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
             </div>
-            <div class="handle">@SirIsaac</div>
-          </section>
-
-          <div class="content-text">If I have seen further it is by standing on the shoulders of giants</div>
-          <section class="tweet-footer">
-            <div class="created_at">10 days ago</div>
-            <div class="icons"><span><img class="footer-img" src="images/flag.png"></span><span><img class="footer-img" src="images/retweet.png"></span><span><img class="footer-img" src="images/heart.png"></span></div>
-          </section>
-        </article>
-
-        <article>
-          <section class="tweet-header">
-            <div class="profile">
-              <div class="avatar"><img src="https://i.imgur.com/73hZDYK.png"></div>
-              <div class="name">Newton</div>
-            </div>
-            <div class="handle">@SirIsaac</div>
-          </section>
-          <div class="content-text">If I have seen further it is by standing on the shoulders of giants</div>
-          <section class="tweet-footer">
-            <div class="created_at">10 days ago</div>
-            <div class="icons"><span><img class="footer-img" src="images/flag.png"></span><span><img class="footer-img" src="images/retweet.png"></span><span><img class="footer-img" src="images/heart.png"></span></div>
-          </section>
-        </article> -->
-
-
-
-      </section>     
+          </form>
+        </section> 
+        
+        <!-- Tweet Container -->
+        <section class="tweet-container">
+          
+        </section>     
+      </div>
     </main>
   </body>
 </html>

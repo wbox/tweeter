@@ -79,14 +79,45 @@ section.tweet-header {
 /* Laptops / Desktops: minimum width of 1024px */
 @media only screen and (min-width: 1024px) {
   /* Write CSS rules that target Laptop/Desktop screen sizes and beyond */
+  /* nav {
+    display: inherit;
+  } */
+  .reactive-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items:flex-start;
+  }
 
-}
+  header {
+    margin: 100px;
+    /* width: 400px; */
+  } 
+
+  /* container {
+    margin: 100px;
+    vertical-align: top;
+  }
+
+  tweet-container {
+    display: flex;
+    align-items: flex-end;
+  }  */
+
+} 
 
 /* Another tablet breakpoint is minimum width of 768px */
 @media only screen and (min-width: 768px) {
   /* Write CSS rules that target Tablets screen sizes upwards - including desktops */
-
-  
+  /* nav {
+    display: none;
+  } */
 }
 
-
+/* Another smartphone breakpoint is maximum width of around 420px */
+@media only screen and (width: 420px) {
+  /* Write smartphone only styles here */
+  /* nav {
+    display: none;
+  } */
+}
