@@ -37,4 +37,4 @@ This repository is the starter code for the project: Students will fork and clon
 
 ### Main Page
 
-!["Main Page](https://github.com/wbox/tweet/blob/master/documentation/landing-page.png)
+!["Main Page"](https://github.com/wbox/tweeter/blob/master/documentation/landing-page.png)
