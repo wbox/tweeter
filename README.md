@@ -38,3 +38,7 @@ This repository is the starter code for the project: Students will fork and clon
 ### Main Page
 
 !["Main Page"](https://github.com/wbox/tweeter/blob/master/documentation/landing-page.png)
+
+## Application Requirements
+
+All applicaton requirements can be found [here]()
