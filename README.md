@@ -22,5 +22,19 @@ This repository is the starter code for the project: Students will fork and clon
 2. Install dependencies using the `npm install` command.
 3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
 4. Go to <http://localhost:8080/> in your browser.
-5. If you have any problems, please [contact me](email:sribas@gmail.com) 
+5. If you have any problems, please contact me -> sribas@gmail.com
 
+### How to use the App
+
+- After installed, open your browser to http://localhost:8080
+- The user profile will be showed on the page along with other item
+- A list of previous tweets will also be show
+- Type your text in the textarea box
+- Click on TWEET button
+- The tweets are ordered from the most recent to the oldest
+
+## Final Product
+
+### Main Page
+
+!["Main Page](https://github.com/wbox/tweet/blob/master/documentation/landing-page.png)
