@@ -5,7 +5,7 @@
  */
 
 
-// Fake data taken from initial-tweets.json
+/*  Fake data taken from initial-tweets.json */
 const data = [
   {
     "user": {
@@ -29,7 +29,7 @@ const data = [
     },
     "created_at": 1461113959088
   }
-]
+];
 
 // Add tweet text to the textarea in the article
 const renderTweets = function(tweets) {
@@ -40,25 +40,25 @@ const renderTweets = function(tweets) {
     let tweeterElement = createTweetElement(data);
     $('.tweet-container').append(tweeterElement);
   }
-}
+};
 
 // Function to calculate the differece of current day to whne the tweet was created
 const calculateDate = function(timestamp) {
-  const days = Math.floor((new Date().getTime() - timestamp)/1000/60/60/24);
+  const days = Math.floor((new Date().getTime() - timestamp) / 1000 / 60 / 60 / 24);
   if (days === 0) {
     return "Today";
-  } else if ( days === 1) {
+  } else if (days === 1) {
     return "1 day ago";
   } else {
-    return `${days} days ago`
+    return `${days} days ago`;
   }
-}
+};
 
 // Function to create the tweet article element
 const createTweetElement = function(tweet) {
   const { name, avatars, handle } = tweet.user;
   const { text } = tweet.content;
-  const createdAt  = calculateDate(tweet.created_at) 
+  const createdAt  = calculateDate(tweet.created_at);
 
   let $tweet = `
   <article>
@@ -75,9 +75,9 @@ const createTweetElement = function(tweet) {
       <div class="icons"><span><img class="footer-img" src="images/flag.png"></span><span><img class="footer-img" src="images/retweet.png"></span><span><img class="footer-img" src="images/heart.png"></span></div>
     </section>
   </article>
-  `
+  `;
   return $tweet;
-}
+};
 
 // Function to send the tweet to the server
 const sendTweetToServer = (tweetText) => {
@@ -90,15 +90,15 @@ const sendTweetToServer = (tweetText) => {
       loadtweets();
       $('textarea').val('');
     })
-    .catch(err => console.log(err))
-  }
+    .catch(err => console.log(err));
+};
 
-  // Function to normalize the text and avoid XSS Attacks
+// Function to normalize the text and avoid XSS Attacks
 const escape =  function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
+};
 
 // Function to reload the tweets on the page
 const loadtweets = () => {
@@ -106,33 +106,31 @@ const loadtweets = () => {
     url: "/tweets",
     method: "GET"
   })
-  .then(res => {
-    $('.tweet-container').empty()
-    renderTweets(res);
-  });
-}
+    .then(res => {
+      $('.tweet-container').empty();
+      renderTweets(res);
+    });
+};
   
 // Load all page content when DOM document is ready
-$( document ).ready(function() {
+$(document).ready(function() {
   
   $('#tweet-form').submit(function(event) {
 
-    event.preventDefault()
+    event.preventDefault();
     const tweetText = $('form').serialize();
     const tweetTextLength = $(this).find('textarea').val().length;
-
-    console.log("--->",escape(tweetText));
 
     $('#user-messages').slideUp();
 
     if (tweetTextLength === 0 || tweetTextLength === undefined) {
-      $('#user-messages').html("&#9888; Blank tweets are not allowed. &#9888;")
-      $( '#user-messages' ).slideDown()
+      $('#user-messages').html("&#9888; Blank tweets are not allowed. &#9888;");
+      $('#user-messages').slideDown();
     } else if (tweetTextLength > 140) {
-      $('#user-messages').html("&#9888; Too Long. Please respect the limit of 140 characters &#9888;")
+      $('#user-messages').html("&#9888; Too Long. Please respect the limit of 140 characters &#9888;");
       $('#user-messages').slideDown();
     } else {
-      sendTweetToServer(tweetText)
+      sendTweetToServer(tweetText);
       loadtweets();
     }
   });
