@@ -31,6 +31,7 @@ const data = [
   }
 ]
 
+// Add tweet text to the textarea in the article
 const renderTweets = function(tweets) {
 // loops through tweets
 // calls createTweetElement for each tweet
