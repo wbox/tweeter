@@ -92,13 +92,14 @@ const sendTweetToServer = (tweetText) => {
     .catch(err => console.log(err))
   }
 
+  // Function to normalize the text and avoid XSS Attacks
 const escape =  function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 }
 
-
+// Function to reload the tweets on the page
 const loadtweets = () => {
   $.ajax({
     url: "/tweets",
@@ -110,6 +111,7 @@ const loadtweets = () => {
   });
 }
   
+// Load all page content when DOM document is ready
 $( document ).ready(function() {
   
   $('#tweet-form').submit(function(event) {
