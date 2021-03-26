@@ -41,4 +41,4 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Application Requirements
 
-All applicaton requirements can be found [here]()
+All applicaton requirements can be found [here](https://github.com/wbox/tweeter/blob/master/documentation/application-requirements.md)
