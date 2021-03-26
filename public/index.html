@@ -5,6 +5,9 @@
   <!-- Meta Information -->
   <title>Tweeter - Home Page</title>
 
+  <!-- Disable viewport zooming -->
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+
   <!-- External CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     type="text/css" />
@@ -53,7 +56,7 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <!--- header -->
-    <div>
+    <!-- <div class="around-header"> -->
     <header>
       <div class="avatar">
         <img src="/images/profile-hex.png">
@@ -63,9 +66,10 @@
         <h2>Amy Mansell</h2>
       </div>
     </header>
-    </div>
+    <!-- </div> -->
 
     <div class="tweet-section">
+
       <section class="new-tweet">
         <!-- <h2>Compose Tweet</h2> -->
         <form id="tweet-form" method="POST" action="/tweets/">
@@ -78,10 +82,12 @@
           </div>
         </form>
       </section>
+
       <!-- Tweet Container -->
       <section class="tweet-container">
 
       </section>
+      
     </div>
   </main>
 
