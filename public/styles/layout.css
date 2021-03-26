@@ -5,6 +5,7 @@
  */
 html {
   box-sizing: border-box;
+  scroll-padding-top: 150px;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -26,6 +27,8 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
+  /* padding-top: 70px; */
+  /* scroll-padding-top: 70px; */
 }
 
 
@@ -34,7 +37,7 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- .container {
+ /* .container {
    display: flex;
    justify-content: center;
    flex-direction: column;
@@ -46,4 +49,4 @@ body {
  .new-tweet {
    display: flex;
    flex-direction: column;
- }
+ } */

@@ -82,23 +82,51 @@ section.tweet-header {
   /* nav {
     display: inherit;
   } */
-  .reactive-content {
+
+  .container {
     display: flex;
     flex-direction: row;
     justify-content: space-between; 
     align-items:flex-start;
+    /* position: relative;
+    padding-top: 100px; */
+    width: 1040px;
   }
 
-  header {
+  .tweet-section {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    background-color: #f4f1ec;
+    padding-top: 100px;
+    position: relative;
+  }
+ 
+  .new-tweet {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tweet-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: flex-start;
+  }
+  /* header {
     margin: 100px;
-    /* width: 400px; */
+    margin-top: 200px;
+
   } 
 
-  /* container {
-    margin: 100px;
-    vertical-align: top;
-  }
+  container {
+    margin-top: 100px;
 
+  } */
+
+  /*
   tweet-container {
     display: flex;
     align-items: flex-end;
@@ -115,7 +143,7 @@ section.tweet-header {
 }
 
 /* Another smartphone breakpoint is maximum width of around 420px */
-@media only screen and (width: 420px) {
+@media only screen and (max-width: 420px) {
   /* Write smartphone only styles here */
   /* nav {
     display: none;
